@@ -35,60 +35,7 @@
                     <button class ="cart">Cart</button>
                 </div>
                 <div class="clear"></div>
-                
-                <!--
-                <div class ="section4">
-                    <div class="navbar">
-                      <div class="dropdown">
-                        <button class="dropbtn">Classifieds 
-                          <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
-                        </div>
-                      </div>
-                        <div class="dropdown">
-                        <button class="dropbtn">Cars and Parts 
-                          <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
-                        </div>
-                      </div>
-                        <div class="dropdown">
-                        <button class="dropbtn">Propert 
-                          <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
-                        </div>
-                      </div>
-                        <div class="dropdown">
-                        <button>Dropdown</button>
-                        <div class="dropdown-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
-                        </div>
-                      </div>
-                        <a href="stores">Contact Us</a>
-                        <form action="/action_page.php">
-                            <div class="search">
-                              <input class="textbox" type="text" placeholder="    Search" name="search">
-                              <button class="button1" type="submit">Submit</button>
-                            </div>
-                    </form>
-                    </div> 
-                    
-                  
-                </div>
-                -->
+
                 <nav>
 				    <ul>
 				        <li><a class="active" href="index.html">Welcome Page</a></li>
@@ -100,12 +47,15 @@
             </header>
             
             <div class="jumbotron jumbotron-fluid">
-              <h1 class="display-4">Welcome to a one of a kind shopping experience!</h1>
+                <?php
+                    session_start();
+                    echo "<h1 class='display-4'>Welcome $_SESSION[name] to a one of a kind shopping experience</h1>";
+                ?>
               <p class="lead">Here you can buy every item you ever decired .This has every top seller items world wide</p>
               <hr class="my-4">
               <p>Here we have the best provider making it the safest and the least place were risks occur</p>
               <p class="lead">
-                <a class="btn btn-danger btn-lg" href="items.html" role="button">Learn more</a>
+                <a class="btn btn-danger btn-lg" href="items.php" role="button">Learn more</a>
               </p>
             </div>
             

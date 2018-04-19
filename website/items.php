@@ -20,79 +20,17 @@
                 <div class ="section1">
                     <img src="sub.png" class="title">
                 </div>
-                <!--
-                <div class ="section2">
-                    <nav>
-                      <a href="/html/">Sign-Up</a> |
-                      <a href="/css/">Help</a> |
-                      <a href="/js/">Contact Us</a> |
-                      <a href="/jquery/">Advertise</a>
-                      <a href="/jquery/">API</a>
-                    </nav>
-                    
-                </div>
-                -->
                 <div class ="section3">
                     <button class ="cart">Cart</button>
                 </div>
+                <div class ="section4">
+                    <button class ="cart">Log Out</button>
+                </div>
                 <div class="clear"></div>
                 
-                <!--
-                <div class ="section4">
-                    <div class="navbar">
-                      <div class="dropdown">
-                        <button class="dropbtn">Classifieds 
-                          <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
-                        </div>
-                      </div>
-                        <div class="dropdown">
-                        <button class="dropbtn">Cars and Parts 
-                          <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
-                        </div>
-                      </div>
-                        <div class="dropdown">
-                        <button class="dropbtn">Propert 
-                          <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
-                        </div>
-                      </div>
-                        <div class="dropdown">
-                        <button>Dropdown</button>
-                        <div class="dropdown-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
-                        </div>
-                      </div>
-                        <a href="stores">Contact Us</a>
-                        <form action="/action_page.php">
-                            <div class="search">
-                              <input class="textbox" type="text" placeholder="    Search" name="search">
-                              <button class="button1" type="submit">Submit</button>
-                            </div>
-                    </form>
-                    </div> 
-                    
-                  
-                </div>
-                -->
                 <nav>
 				    <ul>
-				        <li><a class="active" href="index.html">Welcome Page</a></li>
+				        <li><a class="active" href="index.php">Welcome Page</a></li>
 				        <li><a href="items.php">Items for sale</a></li>
 				        <li><a href="gallery.html">Gallery</a></li>
 				        <li><a href="contactUs.html">Contact us</a></li>

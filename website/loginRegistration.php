@@ -15,10 +15,10 @@
             <div class="container">
                 <div class="login">
                     <h1>Login Page</h1>    
-                    <form method ="post" action="login.php">
+                    <form method ="post" action="loginRegistration.php">
                       <h3>Enter your Details</h3>
-                        Username:
-                      <input type="text" name="Username" class="form-control" required>
+                        Email:
+                      <input type="text" name="email1" class="form-control" required>
                       <br>
                       Password:
                       <input type="password" name="password"class="form-control" >
@@ -32,41 +32,67 @@
                 <br><br>
                 <div class="signup">
                     <h1>Sign Up Page</h1>    
-                    <form method ="post" action="send.php">
+                    <form method ="post" action="loginRegistration.php">
                       <h3>Enter your Details</h3>
+                        Name:
+                      <input type="text" name="name" class="form-control" required>
+                        Surname:
+                      <input type="text" name="surname" class="form-control" required>
+                        Email:
+                      <input type="text" name="email" class="form-control" required>
                         Username:
-                      <input type="text" name="Username" class="form-control" required>
+                      <input type="text" name="username2" class="form-control" required>
                       <br>
                       Password:
-                      <input type="password" name="password"class="form-control" >
+                      <input type="password" name="password2"class="form-control" >
                       
                       <br><br>
-                      <input type="submit" class="btn btn-danger"value="Submit">
+                      <input type="submit" class="btn btn-danger"value="Submit" name ="sign-up">
                       <input type="reset"class="btn btn-light" value="Refresh" >
 
                     </form> 
                 </div>
-                <?php
-                    
+                
+            </div>
+            <?php
+                    session_start();
                 if (isset($_POST['login'])){
-                    $email=$_POST['Username'];
+                    $email1=$_POST['email1'];
                     $password=$_POST['password'];
-                    if (!empty($name) && !empty($name)){
+                    if (!empty($email1) && !empty($password)){
                         $conn = mysqli_connect("localhost", "root", "", "supermarket");
-                        $query = "SELECT * FROM user";
+                        $query = "SELECT Name FROM user Where Email='$email1' and Password='$password'";
                         $result = mysqli_query($conn, $query)
                         or die("Error in query: ". mysqli_error($conn));
-                        while ($row = mysqli_fetch_assoc($result)){
-                            if ($row[Email] == $email && $row[$password] == $password )
+
+                            if (mysqli_num_rows($result) >0)
                             {
-                                window.open('http://localhost:8084/website/index.html');
+                                $row= mysqli_fetch_row($result);
+                                $name=$row[0];
+                                $_SESSION['name']=$name;
+                                echo"Logged In";
+                                header("Location: index.php");
                             }
-                            
-                        }
+
+
                     }
                 }
-                ?>
-            </div>
+            if (isset($_POST['sign-up'])){
+                    $name=$_POST['name'];
+                    $surname=$_POST['surname'];
+                    $email=$_POST['email'];
+                    $username2=$_POST['username2'];
+                    $password2=$_POST['password2'];
+                    if (!empty($name) && !empty($name)){
+                        $conn = mysqli_connect("localhost", "root", "", "supermarket");
+                        $query = "INSERT INTO user (Name,Surname,Email,Username,Password)
+                                VALUES ('$name','$surname','$email','$username2','$password2')";
+                        $result = mysqli_query($conn, $query)
+                        or die("Error in query: ". mysqli_error($conn));
+                    }
+                }
+
+            ?>
         </div>
     </body>
 </html>
