@@ -20,17 +20,15 @@
                 <div class ="section1">
                     <img src="images/logo.png" class="title" onclick="clicked()" style="width:100px;height:100px;">
                 </div>
-                <form action="items.php" method="post">
-                    <div class ="section3">
-                        <input type='submit' name ="cart" class ="cart" value='Cart'>
-                    </div>
-                </form>
+                <div class ="section3">
+                    <button class ="cart" name ="cart">Cart</button>
+                </div>
                 <div class="clear"></div>
                 
                 <nav>
 				    <ul>
-				        <li><a href="index.php">Welcome Page</a></li>
-				        <li><a class="active" href="items.php">Items for sale</a></li>
+				        <li><a class="active" href="index.php">Welcome Page</a></li>
+				        <li><a href="items.php">Items for sale</a></li>
 				        <li><a href="gallery.html">Gallery</a></li>
 				        <li><a href="contactUs.html">Contact us</a></li>
                         
@@ -46,19 +44,14 @@
             
             <div class="products">
                     <?php
+                        session_start();
                         $conn = mysqli_connect("localhost", "root", "", "supermarket");
-                        $query = "SELECT * FROM products";
+                        $chosen=$_GET['id'];
+                        $query = "DELETE from cart where CartId ='$chosen'";
                         $result = mysqli_query($conn, $query)
-                        or die("Error in query: ". mysqli_error($conn));
-                        while ($row = mysqli_fetch_assoc($result)){
-                            echo "<div class='productsDiv'><img src = '$row[productImage]' width='200px' height='200px'>";
-                            echo "<p>$row[Name] $row[Price] euro </p><p>Quantity $row[Instock]</p>";
-                            echo "<button onclick='addProduct()'><a href='http://localhost:8084/website/cart.php?id=$row[ProductId]'>Buy now</a></button></div>";
-                        }
-                        if (isset($_POST['cart'])){
-                            header("Location: cart.php");
-                            
-                        }
+                        or die("Error in query: ". mysqli_error($conn));   
+                        
+                        echo "Removed item $chosen ";
                     ?>
             </div>
             
@@ -66,9 +59,6 @@
         <script>
             function clicked() {
                 alert("Welome to the website");
-            }
-            function addProduct() {
-                alert("Item added to cart");
             }
         </script>
     </body>

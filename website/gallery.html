@@ -29,15 +29,15 @@
         <div class="container">
             <header>
                 <div class ="section1">
-                    <img src="sub.png" class="title">
+                    <img src="images/logo.png" class="title" onclick="clicked()" style="width:100px;height:100px;">
                 </div>
                 <div class="clear"></div>
 
                 <nav>
 				    <ul>
-				        <li><a class="active" href="index.php">Welcome Page</a></li>
+				        <li><a href="index.php">Welcome Page</a></li>
 				        <li><a href="items.php">Items for sale</a></li>
-				        <li><a href="gallery.html">Gallery</a></li>
+				        <li><a class="active"href="gallery.html">Gallery</a></li>
 				        <li><a href="contactUs.html">Contact us</a></li>
                         
 				</ul>
@@ -55,6 +55,10 @@
             
             
         </div>
-        
+        <script>
+            function clicked() {
+                alert("Welome to the website");
+            }
+        </script>
     </body>
 </html>

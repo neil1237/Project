@@ -18,7 +18,7 @@
                     <form method ="post" action="loginRegistration.php">
                       <h3>Enter your Details</h3>
                         Email:
-                      <input type="text" name="email1" class="form-control" required>
+                      <input type="email" name="email1" class="form-control" required>
                       <br>
                       Password:
                       <input type="password" name="password"class="form-control" >
@@ -39,7 +39,7 @@
                         Surname:
                       <input type="text" name="surname" class="form-control" required>
                         Email:
-                      <input type="text" name="email" class="form-control" required>
+                      <input type="email" name="email" class="form-control" required>
                         Username:
                       <input type="text" name="username2" class="form-control" required>
                       <br>

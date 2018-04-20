@@ -17,23 +17,15 @@
         <div class="container">
             <header>
                 <div class ="section1">
-                    <img src="sub.png" class="title">
+                    <img src="images/logo.png" class="title" onclick="clicked()" style="width:100px;height:100px;">
                 </div>
-                <!--
-                <div class ="section2">
-                    <nav>
-                      <a href="/html/">Sign-Up</a> |
-                      <a href="/css/">Help</a> |
-                      <a href="/js/">Contact Us</a> |
-                      <a href="/jquery/">Advertise</a>
-                      <a href="/jquery/">API</a>
-                    </nav>
-                    
-                </div>
-                -->
                 <div class ="section3">
                     <button class ="cart">Cart</button>
                 </div>
+                <div class ="section3">
+                    <button class ="cart" name="logout">Logout</button>
+                </div>
+                
                 <div class="clear"></div>
 
                 <nav>
@@ -50,6 +42,15 @@
                 <?php
                     session_start();
                     echo "<h1 class='display-4'>Welcome $_SESSION[name] to a one of a kind shopping experience</h1>";
+                    if(isset($_POST['logout'])){
+                        header("Location: loginRegistration.php");
+                        session_destroy();
+                        
+                    }
+                    else 
+                    {
+                        echo("Error");
+                    }
                 ?>
               <p class="lead">Here you can buy every item you ever decired .This has every top seller items world wide</p>
               <hr class="my-4">
@@ -57,9 +58,26 @@
               <p class="lead">
                 <a class="btn btn-danger btn-lg" href="items.php" role="button">Learn more</a>
               </p>
+                <button onclick="white()">White</button>
+                <button onclick="blue()">Blue</button>
             </div>
             
         </div>
-        
+        <script>
+            function clicked() {
+                alert("Welome to the website");
+            }
+            function white() {
+                $("div").on("click", "button", function(event){
+                    $(event.delegateTarget).css("background-color", "white");
+                });
+            }
+            function blue() {
+                $("div").on("click", "button", function(event){
+                    $(event.delegateTarget).css("background-color", "#00ccff");
+                });
+            }
+            
+        </script>
     </body>
 </html>
