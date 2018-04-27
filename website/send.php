@@ -1,14 +1,14 @@
 <?php
     if (isset( $_POST['send']));
     {
-        $myemail ='sup20181@gmail.com';
-        $myPassword ='sup23409';
+        $myemail ='neil.mizzi.b42040@mcast.edu.mt';
+        $myPassword ='mcast451400';
         $username =$_POST['first_name'];
         $surname =$_POST['last_name'];
         $email =$_POST['email_Address'];
         $comment =$_POST['comments'];
         
-        require($_SERVER['C:/xampp/htdocs/website/phpmailer/PHPMailerAutoload.php']);
+        require($_SERVER['DOCUMENT_ROOT'].'/phpmailer/PHPMailerAutoload.php');
 
         $mail = new PHPMailer(); #create a new instance
         $mail->isSMTP();#using SMTP

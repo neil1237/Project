@@ -31,17 +31,12 @@
 				        <li><a href="items.php">Items for sale</a></li>
 				        <li><a href="gallery.html">Gallery</a></li>
 				        <li><a href="contactUs.html">Contact us</a></li>
-                        
-                        <form action="search.php" method="post">
-                            <div class="search">
-                              <input class="textbox" type="text" placeholder="    Search" name="search">
-                              <button class="button1 btn btn-danger btn-lg" type="submit" name="submit">Submit</button>
-                            </div>
-                        </form>
+
 				</ul>
 				</nav>
+                
             </header>
-            
+            <form method ="post" action="delete.php"></form> 
             <div class="products">
                     <?php
                         session_start();
@@ -51,7 +46,10 @@
                         $result = mysqli_query($conn, $query)
                         or die("Error in query: ". mysqli_error($conn));   
                         
-                        echo "Removed item $chosen ";
+                                echo '<script language="javascript">';
+                                echo 'alert("Removed item number $chosen ")';
+                                echo '</script>';
+                        header("Location: items.php");
                     ?>
             </div>
             

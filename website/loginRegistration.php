@@ -70,7 +70,24 @@
                                 $row= mysqli_fetch_row($result);
                                 $name=$row[0];
                                 $_SESSION['name']=$name;
-                                echo"Logged In";
+                            }
+                            else
+                            {
+                                echo '<script language="javascript">';
+                                echo 'alert("Email or password are incorrect")';
+                                echo '</script>';
+                            }
+                        
+                        /*UserId*/
+                        $query1 = "SELECT UserId FROM user Where Email='$email1' and Password='$password'";
+                        $result1 = mysqli_query($conn, $query1)
+                        or die("Error in query: ". mysqli_error($conn));
+
+                            if (mysqli_num_rows($result1) >0)
+                            {
+                                $row= mysqli_fetch_row($result1);
+                                $userId=$row[0];
+                                $_SESSION['userId']=$userId;
                                 header("Location: index.php");
                             }
 
@@ -89,6 +106,10 @@
                                 VALUES ('$name','$surname','$email','$username2','$password2')";
                         $result = mysqli_query($conn, $query)
                         or die("Error in query: ". mysqli_error($conn));
+                        
+                        echo '<script language="javascript">';
+                                echo 'alert("New account created now login")';
+                                echo '</script>';
                     }
                 }
 

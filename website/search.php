@@ -18,78 +18,8 @@
         <div class="container">
             <header>
                 <div class ="section1">
-                    <img src="sub.png" class="title">
+                    <img src="images/logo.png" class="title" onclick="clicked()" style="width:100px;height:100px;">
                 </div>
-                <!--
-                <div class ="section2">
-                    <nav>
-                      <a href="/html/">Sign-Up</a> |
-                      <a href="/css/">Help</a> |
-                      <a href="/js/">Contact Us</a> |
-                      <a href="/jquery/">Advertise</a>
-                      <a href="/jquery/">API</a>
-                    </nav>
-                    
-                </div>
-                -->
-                <div class ="section3">
-                    <button class ="cart">Cart</button>
-                </div>
-                <div class="clear"></div>
-                
-                <!--
-                <div class ="section4">
-                    <div class="navbar">
-                      <div class="dropdown">
-                        <button class="dropbtn">Classifieds 
-                          <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
-                        </div>
-                      </div>
-                        <div class="dropdown">
-                        <button class="dropbtn">Cars and Parts 
-                          <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
-                        </div>
-                      </div>
-                        <div class="dropdown">
-                        <button class="dropbtn">Propert 
-                          <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
-                        </div>
-                      </div>
-                        <div class="dropdown">
-                        <button>Dropdown</button>
-                        <div class="dropdown-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
-                        </div>
-                      </div>
-                        <a href="stores">Contact Us</a>
-                        <form action="/action_page.php">
-                            <div class="search">
-                              <input class="textbox" type="text" placeholder="    Search" name="search">
-                              <button class="button1" type="submit">Submit</button>
-                            </div>
-                    </form>
-                    </div> 
-                    
-                  
-                </div>
-                -->
                 <nav>
 				    <ul>
 				        <li><a class="active" href="index.html">Welcome Page</a></li>
@@ -100,7 +30,7 @@
                         <form action="search.php" method="post">
                             <div class="search">
                               <input class="textbox" type="text" placeholder="    Search" name="search">
-                              <button class="button1 btn btn-danger btn-lg" type="submit" name="search">Submit</button>
+                              <button class="button1 btn btn-danger btn-lg" type="submit" name="submit">Submit</button>
                             </div>
                     </form>
 				</ul>
@@ -109,10 +39,11 @@
             
             <div class="products">
                     <?php
+                        $conn = mysqli_connect("localhost", "root", "", "supermarket");
                         if(isset($_POST['submit']))
                         {
                             $name=$_POST['search'];
-                            $conn = mysqli_connect("localhost", "root", "", "supermarket");
+                            
                             $query = "SELECT * FROM products where Name = '$name' ";
                             $result = mysqli_query($conn, $query)
                             or die("Error in query: ". mysqli_error($conn));
@@ -122,7 +53,6 @@
                                 echo "<button><a href='http://localhost:8084/website/cart.php?id=$row[ProductId]'>Buy now</a></button></div>";
                             }
                         }
-                        
                     ?>
             </div>
             

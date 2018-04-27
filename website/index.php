@@ -19,12 +19,16 @@
                 <div class ="section1">
                     <img src="images/logo.png" class="title" onclick="clicked()" style="width:100px;height:100px;">
                 </div>
-                <div class ="section3">
-                    <button class ="cart">Cart</button>
-                </div>
-                <div class ="section3">
-                    <button class ="cart" name="logout">Logout</button>
-                </div>
+                <form action="items.php" method="post">
+                    <div class ="section3">
+                        <input type='submit' name ="cart" class ="cart" value='Cart'>
+                    </div>
+                </form>
+                <form action="index.php" method="post">
+                    <div class ="section3">
+                        <input type='submit' name="logout" class ="cart" value="Logout">
+                    </div>
+                </form>
                 
                 <div class="clear"></div>
 
@@ -45,11 +49,6 @@
                     if(isset($_POST['logout'])){
                         header("Location: loginRegistration.php");
                         session_destroy();
-                        
-                    }
-                    else 
-                    {
-                        echo("Error");
                     }
                 ?>
               <p class="lead">Here you can buy every item you ever decired .This has every top seller items world wide</p>

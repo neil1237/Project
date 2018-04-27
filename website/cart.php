@@ -28,13 +28,6 @@
 				        <li><a href="items.php">Items for sale</a></li>
 				        <li><a href="gallery.html">Gallery</a></li>
 				        <li><a href="contactUs.html">Contact us</a></li>
-                        
-                        <form action="search.php" method="post">
-                            <div class="search">
-                              <input class="textbox" type="text" placeholder="    Search" name="search">
-                              <button class="button1 btn btn-danger btn-lg" type="submit" name="submit">Submit</button>
-                            </div>
-                        </form>
 				</ul>
 				</nav>
             </header>
@@ -42,18 +35,20 @@
             <div class="products">
                     <?php
                         session_start();
+                        $userId = $_SESSION['userId'];
                         $conn = mysqli_connect("localhost", "root", "", "supermarket");
                         $chosen=$_GET['id'];
                         if(!empty($chosen)){
                             $query = "INSERT INTO cart (UserId, ProductId, Quantity)
-                                    values ('$_SESSION[name]','$chosen',1)";
+                                    values ('$_SESSION[userId]','$chosen',1)";
                             $result = mysqli_query($conn, $query)
                             or die("Error in query: ". mysqli_error($conn));
                             
                         $query1 = "SELECT *
                                         FROM cart
                                         INNER JOIN products
-                                        ON cart.ProductId = products.ProductId";
+                                        ON cart.ProductId = products.ProductId
+                                        WHERE cart.UserId=$userId";
                                 $result1 = mysqli_query($conn, $query1)
                                 or die("Error in query: ". mysqli_error($conn));
                                 while ($row = mysqli_fetch_assoc($result1)){
@@ -66,7 +61,8 @@
                             $query1 = "SELECT *
                                         FROM cart
                                         INNER JOIN products
-                                        ON cart.ProductId = products.ProductId";
+                                        ON cart.ProductId = products.ProductId
+                                        WHERE cart.UserId=$userId";
                                 $result1 = mysqli_query($conn, $query1)
                                 or die("Error in query: ". mysqli_error($conn));
                                 while ($row = mysqli_fetch_assoc($result1)){
