@@ -22,7 +22,7 @@
                 </div>
                 <nav>
 				    <ul>
-				        <li><a class="active" href="index.html">Welcome Page</a></li>
+				        <li><a href="index.php">Welcome Page</a></li>
 				        <li><a href="items.php">Items for sale</a></li>
 				        <li><a href="gallery.html">Gallery</a></li>
 				        <li><a href="contactUs.html">Contact us</a></li>
@@ -32,7 +32,7 @@
                               <input class="textbox" type="text" placeholder="    Search" name="search">
                               <button class="button1 btn btn-danger btn-lg" type="submit" name="submit">Submit</button>
                             </div>
-                    </form>
+                        </form>
 				</ul>
 				</nav>
             </header>
@@ -44,7 +44,7 @@
                         {
                             $name=$_POST['search'];
                             
-                            $query = "SELECT * FROM products where Name = '$name' ";
+                            $query = "SELECT * FROM products where Name like '%".$name."%'";
                             $result = mysqli_query($conn, $query)
                             or die("Error in query: ". mysqli_error($conn));
                             while ($row = mysqli_fetch_assoc($result)){

@@ -9,7 +9,38 @@
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
-        <?php
+        <?php 
+            class UnitTests extends PHPUnit_Framework_TestCase {
+
+                /*public function testAdd() {
+                    include('work.php');
+                    $tot = Addition(2, 2);
+                    $this->assertEquals(5, $tot);
+                }*/
+                /**
+                @test
+                */
+                public function words() {
+                    $tot = stringComb();
+                    $this->assertEquals("Name Surname", $tot);
+                }
+                public function size() {
+                    $tot = arraysize();
+                    $this->assertEquals(3, $tot);
+                }
+                public function testcheck() {
+                    $tot = check();
+                    $this->assertEquals(11, $tot);
+                }
+                public function checkFile() {
+                    $this->assertFileExists('G:\recent projects\project\website\testing.php');
+                }
+                public function testarray() {
+                    $answer = arrays();
+                    $this->assertTrue($answer);
+                }
+            }
+        
             $cars = array("Fiat", "Lambo", "Nissan");
             check();
             arrays();
@@ -19,7 +50,7 @@
                 {
                     $name="Name";
                     $surname="Surname";
-                    $combine = $name."".$surname;
+                    $combine = $name." ".$surname;
                     echo $combine;
                     return $combine;
                 }

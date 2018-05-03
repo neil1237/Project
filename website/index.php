@@ -19,7 +19,7 @@
                 <div class ="section1">
                     <img src="images/logo.png" class="title" onclick="clicked()" style="width:100px;height:100px;">
                 </div>
-                <form action="items.php" method="post">
+                <form action="cart.php" method="post">
                     <div class ="section3">
                         <input type='submit' name ="cart" class ="cart" value='Cart'>
                     </div>
@@ -51,14 +51,14 @@
                         session_destroy();
                     }
                 ?>
-              <p class="lead">Here you can buy every item you ever decired .This has every top seller items world wide</p>
+              <p class="lead">Here you can buy every item you ever desired.</p>
               <hr class="my-4">
-              <p>Here we have the best provider making it the safest and the least place were risks occur</p>
+              <p>Here we have the best providers making it the best place to buy your daily needs.</p>
               <p class="lead">
                 <a class="btn btn-danger btn-lg" href="items.php" role="button">Learn more</a>
               </p>
-                <button onclick="white()">White</button>
-                <button onclick="blue()">Blue</button>
+                <button onclick="white()" class="cart">White</button>
+                <button onclick="blue()" class="cart">Blue</button>
             </div>
             
         </div>

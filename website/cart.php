@@ -37,40 +37,113 @@
                         session_start();
                         $userId = $_SESSION['userId'];
                         $conn = mysqli_connect("localhost", "root", "", "supermarket");
-                        $chosen=$_GET['id'];
-                        if(!empty($chosen)){
-                            $query = "INSERT INTO cart (UserId, ProductId, Quantity)
-                                    values ('$_SESSION[userId]','$chosen',1)";
-                            $result = mysqli_query($conn, $query)
-                            or die("Error in query: ". mysqli_error($conn));
+                        if(isset($_POST['submit']))
+                        {
+                           echo " <form method ='post' action='cart.php'>";
+                            echo "<label for='name'>Email</label>";
+					
+                            echo "<input type='text' name='Email' id='Email' />";
+
+                            echo "<label for='name'>Password</label>";
+
+                            echo "<input type='text' name='Password' id='Password' />";
+                            echo "<button class='button1 btn btn-danger btn-lg' type='submit' name='send'>Send</button>";
+                            echo " </form>";
                             
-                        $query1 = "SELECT *
-                                        FROM cart
-                                        INNER JOIN products
-                                        ON cart.ProductId = products.ProductId
-                                        WHERE cart.UserId=$userId";
-                                $result1 = mysqli_query($conn, $query1)
-                                or die("Error in query: ". mysqli_error($conn));
-                                while ($row = mysqli_fetch_assoc($result1)){
-                                    echo "<div class='productsDiv'><img src = '$row[productImage]' width='200px' height='200px'>";
-                                    echo "<p>$row[Name] $row[Price] euro </p><p>Quantity $row[Instock]</p>";
-                                    echo "<button><a href='http://localhost:8084/website/delete.php?id=$row[CartId]'>Remove Item from list</a></button></div>";
+                            if(isset($_POST['send']))
+                            {   /*
+                                require($_SERVER['DOCUMENT_ROOT'].'/phpmailer/PHPMailerAutoload.php'); #load the library required for phpmailer
+                                
+                                $myemail =$_POST['Email'];
+                                $myPassword =$_POST['Password'];
+                                $comments = $_POST['comments'];
+                                $mail = new PHPMailer(); #create a new instance
+                                $mail->isSMTP(); #using SMTP
+                                $mail->isHtml(true);
+                                $mail->Host = 'smtp.office365.com';
+                                #$mail->SMTPDebug = 2; #include client and server messges
+                                $mail->Port = 587;
+                                $mail->SMTPSecure = 'tls';
+                                $mail->SMTPAuth = true;
+                                $mail->Username = $myemail;
+                                $mail->Password = $myPassword;
+                                $mail->Body = $comments;
+                                $mail->Subject = 'Products Bought';
+                                $mail->From = $myemail; #sender
+                                $mail->AddAddress($myemail); #recepient
+
+                                if (!$mail->Send()) #sending the email
+                                {
+                                    echo "Message was not sent";
+                                    echo "Mailer Error: ". $mail->ErrorInfo;
                                 }
+                                else
+                                    echo 'Message was sent';
+                            }*/
+                                /*
+                                 $query2 = "update products set Instock=Instock-1 where ProductId in (select ProductId from cart where UserId=$userId)";
+                                $result = mysqli_query($conn, $query2)
+                                or die("Error in query: ". mysqli_error($conn));
+                                
+                                $query3 = "delete from cart where UserId = $userId";
+                                $result = mysqli_query($conn, $query3)
+                                or die("Error in query: ". mysqli_error($conn));
+                                
+                                header("Location: index.php");
+                                */
+                        }
+                            else
+                            {
+                                $query2 = "update products set Instock=Instock-1 where ProductId in (select ProductId from cart where UserId=$userId)";
+                                $result = mysqli_query($conn, $query2)
+                                or die("Error in query: ". mysqli_error($conn));
+                                
+                                $query3 = "delete from cart where UserId = $userId";
+                                $result = mysqli_query($conn, $query3)
+                                or die("Error in query: ". mysqli_error($conn));
+                                echo '<script language="javascript">';
+                                echo 'alert("Items bought succsesfully")';
+                                echo '</script>';
+                                header("Location: index.php");
+                            }
                         }
                         else{
-                            $query1 = "SELECT *
-                                        FROM cart
-                                        INNER JOIN products
-                                        ON cart.ProductId = products.ProductId
-                                        WHERE cart.UserId=$userId";
-                                $result1 = mysqli_query($conn, $query1)
+                            if(isset($_GET['id']))
+                            {
+                                $chosen=$_GET['id'];
+                                $query = "INSERT INTO cart (UserId, ProductId, Quantity)
+                                        values ('$_SESSION[userId]','$chosen',1)";
+                                $result = mysqli_query($conn, $query)
                                 or die("Error in query: ". mysqli_error($conn));
-                                while ($row = mysqli_fetch_assoc($result1)){
-                                    echo "<div class='productsDiv'><img src = '$row[productImage]' width='200px' height='200px'>";
-                                    echo "<p>$row[Name] $row[Price] euro </p><p>Quantity $row[Instock]</p>";
-                                    echo "<button><a href='http://localhost:8084/website/delete.php?id=$row[CartId]'>Remove Item from list</a></button></div>";
-                                }
+
+                            $query1 = "SELECT *
+                                            FROM cart
+                                            INNER JOIN products
+                                            ON cart.ProductId = products.ProductId
+                                            WHERE cart.UserId=$userId";
+                                    $result1 = mysqli_query($conn, $query1)
+                                    or die("Error in query: ". mysqli_error($conn));
+                                    while ($row = mysqli_fetch_assoc($result1)){
+                                        echo "<div class='productsDiv'><img src = '$row[productImage]' width='200px' height='200px'>";
+                                        echo "<p>$row[Name] $row[Price] euro </p><p>Quantity $row[Instock]</p>";
+                                        echo "<button><a href='http://localhost:8084/website/delete.php?id=$row[CartId]'>Remove Item from list</a></button></div>";
+                                    }
                             }
+                            else{
+                                $query1 = "SELECT *
+                                            FROM cart
+                                            INNER JOIN products
+                                            ON cart.ProductId = products.ProductId
+                                            WHERE cart.UserId=$userId";
+                                    $result1 = mysqli_query($conn, $query1)
+                                    or die("Error in query: ". mysqli_error($conn));
+                                    while ($row = mysqli_fetch_assoc($result1)){
+                                        echo "<div class='productsDiv'><img src = '$row[productImage]' width='200px' height='200px'>";
+                                        echo "<p>$row[Name] $row[Price] euro </p><p>Quantity $row[Instock]</p>";
+                                        echo "<button><a href='http://localhost:8084/website/delete.php?id=$row[CartId]'>Remove Item from list</a></button></div>";
+                                    }
+                                }
+                        }
                     ?>
             </div>
             
@@ -80,7 +153,8 @@
                 alert("Welome to the website");
             }
         </script>
-        <button >Buy All
-        </button>
+        <form action="cart.php" method="post">
+            <button class="button1 btn btn-danger btn-lg" type="submit" name="submit">Buy All</button>
+        </form>
     </body>
 </html>

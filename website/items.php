@@ -20,7 +20,7 @@
                 <div class ="section1">
                     <img src="images/logo.png" class="title" onclick="clicked()" style="width:100px;height:100px;">
                 </div>
-                <form action="items.php" method="post">
+                <form action="cart.php" method="post">
                     <div class ="section3">
                         <input type='submit' name ="cart" class ="cart" value='Cart'>
                     </div>
