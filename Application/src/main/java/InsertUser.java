@@ -19,9 +19,6 @@ import javax.swing.JFrame;
  */
 public class InsertUser extends javax.swing.JFrame {
 
-    /**
-     * Creates new form InsertUser
-     */
     public InsertUser() {
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

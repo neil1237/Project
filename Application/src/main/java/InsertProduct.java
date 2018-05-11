@@ -152,19 +152,13 @@ public class InsertProduct extends javax.swing.JFrame {
         int price = Integer.parseInt(c.getText());
         int stock = Integer.parseInt(d.getText());
         
-        System.out.println("Calculation done");/*
-        if (a.getText().isEmpty() || b.getText().isEmpty() ||c.getText().isEmpty() || d.getText().isEmpty())
-        {
-             JOptionPane.showMessageDialog(null, "One of the values is empty");
-        }
-        else
-        {*/
+        System.out.println("Calculation done");
             connectAndInsert(name,price,stock,image);
             InsertProduct a =new InsertProduct();
             a.setVisible(false);
             AllProducts b =new AllProducts();
             b.setVisible(true);
-       /* }*/
+       
     }
     public static void connectAndInsert( String names,int price1,int stock1,String image1)
     {

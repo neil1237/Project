@@ -21,20 +21,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class AllProducts extends javax.swing.JFrame {
 
-    /**
-     * Creates new form AllProducts
-     */
     public AllProducts() {
         initComponents();
         connectAndRetrieve();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
-        /*
-        connectAndRetrieve();
-        connectAndInsert();
-        connectAndUpdate();
-        connectAndDelete();
-        */
     }
 
     /**
@@ -177,38 +168,6 @@ public class AllProducts extends javax.swing.JFrame {
             {
                 model.addRow(new Object[]{rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getInt(4)});
             }
-            con.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(AllProducts.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    
-        public static void connectAndUpdate()
-    {
-        try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/supermarket", "root", "");
-            
-            Statement stmt= con.createStatement();
-            
-            stmt.executeUpdate("Update products set price=0.90 where name='water'");
-            
-
-            con.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(AllProducts.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    public static void connectAndDelete()
-    {
-        try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/supermarket", "root", "");
-            
-            Statement stmt= con.createStatement();
-            
-            stmt.executeUpdate("Delete from products where name='water'");
-            
-
             con.close();
         } catch (SQLException ex) {
             Logger.getLogger(AllProducts.class.getName()).log(Level.SEVERE, null, ex);

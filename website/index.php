@@ -34,7 +34,7 @@
 
                 <nav>
 				    <ul>
-				        <li><a class="active" href="index.html">Welcome Page</a></li>
+				        <li><a class="active" href="index.php">Welcome Page</a></li>
 				        <li><a href="items.php">Items for sale</a></li>
 				        <li><a href="gallery.html">Gallery</a></li>
 				        <li><a href="contactUs.html">Contact us</a></li>
