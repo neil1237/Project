@@ -42,10 +42,10 @@ public class InsertUser extends javax.swing.JFrame {
     {
         
         String name = a.getText();
-        String surname = a.getText();
-        String email = b.getText();
-        String username = c.getText();
-        String password = d.getText();
+        String surname = b.getText();
+        String email = c.getText();
+        String username = d.getText();
+        String password = e.getText();
         
         System.out.println("Calculation done");
             connectAndInsert(name,surname,email,username,password);
