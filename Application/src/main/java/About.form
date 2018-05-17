@@ -79,12 +79,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Click on the show users button to see the users that are logged in the application"/>
+        <Property name="text" type="java.lang.String" value="Click on the show users button to see the users that are logged in this application"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Click on the show products button to see the products that are sold in the application"/>
+        <Property name="text" type="java.lang.String" value="Click on the show products button to see the products that are sold in this application"/>
       </Properties>
     </Component>
   </SubComponents>

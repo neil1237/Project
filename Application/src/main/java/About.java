@@ -41,9 +41,9 @@ public class About extends javax.swing.JFrame {
 
         jLabel1.setText("Welcome to Supermarket Limited");
 
-        jLabel4.setText("Click on the show users button to see the users that are logged in the application");
+        jLabel4.setText("Click on the show users button to see the users that are logged in this application");
 
-        jLabel5.setText("Click on the show products button to see the products that are sold in the application");
+        jLabel5.setText("Click on the show products button to see the products that are sold in this application");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
