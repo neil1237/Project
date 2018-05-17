@@ -46,7 +46,7 @@
             
             <div class="products">
                     <?php
-                        $conn = mysqli_connect("localhost", "root", "", "supermarket");
+                        include 'connect.php';
                         $query = "SELECT * FROM products";
                         $result = mysqli_query($conn, $query)
                         or die("Error in query: ". mysqli_error($conn));

@@ -39,7 +39,7 @@
             
             <div class="products">
                     <?php
-                        $conn = mysqli_connect("localhost", "root", "", "supermarket");
+                        include 'connect.php';
                         if(isset($_POST['submit']))
                         {
                             $name=$_POST['search'];

@@ -40,7 +40,7 @@
             <div class="products">
                     <?php
                         session_start();
-                        $conn = mysqli_connect("localhost", "root", "", "supermarket");
+						include 'connect.php';
                         $chosen=$_GET['id'];
                         $query = "DELETE from cart where CartId ='$chosen'";
                         $result = mysqli_query($conn, $query)

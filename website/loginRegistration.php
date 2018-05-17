@@ -60,7 +60,7 @@
                     $email1=$_POST['email1'];
                     $password=$_POST['password'];
                     if (!empty($email1) && !empty($password)){
-                        $conn = mysqli_connect("localhost", "root", "", "supermarket");
+                        include 'connect.php';
                         $query = "SELECT Name FROM user Where Email='$email1' and Password='$password'";
                         $result = mysqli_query($conn, $query)
                         or die("Error in query: ". mysqli_error($conn));

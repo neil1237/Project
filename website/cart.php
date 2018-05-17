@@ -36,14 +36,13 @@
                     <?php
                         session_start();
                         $userId = $_SESSION['userId'];
-                        $conn = mysqli_connect("localhost", "root", "", "supermarket");
-                
+						include 'connect.php';
                 
                 
                         
                         if(isset($_POST['submit']))
                         {
-                           echo " <form method ='post' action='cart.php'>";
+                           echo " <form method ='post' action='update.php'>";
                             echo "<label for='name'>Email</label>";
 					
                             echo "<input type='text' name='Email' id='Email' />";
@@ -53,68 +52,7 @@
                             echo "<input type='text' name='Password' id='Password' />";
                             echo "<button class='button1 btn btn-danger btn-lg' type='submit' name='send'>Send</button>";
                             echo " </form>";
-                            $query4 = "select cart.ProductId, products.name, products.price from cart inner join products on cart.ProductId=products.ProductId where cart.UserId=$userId";
-
-                            $result4 = mysqli_query($conn, $query4)or die("Error in query: ". mysqli_error($conn));
-                            $products = '';
-                            while ($row = mysqli_fetch_assoc($result4)){
-                                $products .= "<p>$row[Name] $row[Price] euro </p></br>";                                      
-                            }
-                            if(isset($_POST['send']))
-                            {
-                                require($_SERVER['DOCUMENT_ROOT'].'/phpmailer/PHPMailerAutoload.php'); #load the library required for phpmailer
-                                
-                                $myemail =$_POST['Email'];
-                                $myPassword =$_POST['Password'];
-                                $mail = new PHPMailer(); #create a new instance
-                                $mail->isSMTP(); #using SMTP
-                                $mail->isHtml(true);
-                                $mail->Host = 'smtp.office365.com';
-                                #$mail->SMTPDebug = 2; #include client and server messges
-                                $mail->Port = 587;
-                                $mail->SMTPSecure = 'tls';
-                                $mail->SMTPAuth = true;
-                                $mail->Username = $myemail;
-                                $mail->Password = $myPassword;
-                                $mail->Body = $products;
-                                $mail->Subject = 'Products Bought';
-                                $mail->From = $myemail; #sender
-                                $mail->AddAddress($myemail); #recepient
-
-                                if (!$mail->Send()) #sending the email
-                                {
-                                    echo "Message was not sent";
-                                    echo "Mailer Error: ". $mail->ErrorInfo;
-                                }
-                                else
-                                    echo 'Message was sent';
-                            }
-                                /*
-                                 $query2 = "update products set Instock=Instock-1 where ProductId in (select ProductId from cart where UserId=$userId)";
-                                $result = mysqli_query($conn, $query2)
-                                or die("Error in query: ". mysqli_error($conn));
-                                
-                                $query3 = "delete from cart where UserId = $userId";
-                                $result = mysqli_query($conn, $query3)
-                                or die("Error in query: ". mysqli_error($conn));
-                                
-                                header("Location: index.php");
-                                */
-                        
-                            else
-                            {
-                                $query2 = "update products set Instock=Instock-1 where ProductId in (select ProductId from cart where UserId=$userId)";
-                                $result = mysqli_query($conn, $query2)
-                                or die("Error in query: ". mysqli_error($conn));
-                                
-                                $query3 = "delete from cart where UserId = $userId";
-                                $result = mysqli_query($conn, $query3)
-                                or die("Error in query: ". mysqli_error($conn));
-                                echo '<script language="javascript">';
-                                echo 'alert("Items bought succsesfully")';
-                                echo '</script>';
-                                header("Location: index.php");
-                            }
+                         
                         }
                         else{
                             if(isset($_GET['id']))

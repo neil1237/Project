@@ -45,7 +45,13 @@
             <div class="jumbotron jumbotron-fluid">
                 <?php
                     session_start();
-                    echo "<h1 class='display-4'>Welcome $_SESSION[name] to a one of a kind shopping experience</h1>";
+                    if(isset($_SESSION['name'])){
+                        echo "<h1 class='display-4'>Welcome $_SESSION[name] to a one of a kind shopping experience</h1>";
+                    }
+                    else
+                    {
+                        echo "<h1 class='display-4'>Welcome buyer to a one of a kind shopping experience</h1>";
+                    }
                     if(isset($_POST['logout'])){
                         header("Location: loginRegistration.php");
                         session_destroy();
