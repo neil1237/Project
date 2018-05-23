@@ -53,7 +53,7 @@
                         while ($row = mysqli_fetch_assoc($result)){
                             echo "<div class='productsDiv'><img src = '$row[productImage]' width='200px' height='200px'>";
                             echo "<p>$row[Name] $row[Price] euro </p><p>Quantity $row[Instock]</p>";
-                            echo "<button onclick='addProduct()'><a href='http://localhost:8084/website/cart.php?id=$row[ProductId]'>Buy now</a></button></div>";
+                            echo "<button onclick='addProduct()'><a href='http://localhost:8080/website/cart.php?id=$row[ProductId]'>Buy now</a></button></div>";
                         }
                         if (isset($_POST['cart'])){
                             header("Location: cart.php");

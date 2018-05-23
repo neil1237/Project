@@ -73,7 +73,7 @@
                                     while ($row = mysqli_fetch_assoc($result1)){
                                         echo "<div class='productsDiv'><img src = '$row[productImage]' width='200px' height='200px'>";
                                         echo "<p>$row[Name] $row[Price] euro </p><p>Quantity $row[Instock]</p>";
-                                        echo "<button><a href='http://localhost:8084/website/delete.php?id=$row[CartId]'>Remove Item from list</a></button></div>";
+                                        echo "<button><a href='http://localhost:8080/website/delete.php?id=$row[CartId]'>Remove Item from list</a></button></div>";
                                     }
                             }
                             else{
@@ -87,7 +87,7 @@
                                     while ($row = mysqli_fetch_assoc($result1)){
                                         echo "<div class='productsDiv'><img src = '$row[productImage]' width='200px' height='200px'>";
                                         echo "<p>$row[Name] $row[Price] euro </p><p>Quantity $row[Instock]</p>";
-                                        echo "<button><a href='http://localhost:8084/website/delete.php?id=$row[CartId]'>Remove Item from list</a></button></div>";
+                                        echo "<button><a href='http://localhost:8080/website/delete.php?id=$row[CartId]'>Remove Item from list</a></button></div>";
                                     }
                                 }
                         }

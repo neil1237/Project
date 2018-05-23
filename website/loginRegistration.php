@@ -56,11 +56,12 @@
             </div>
             <?php
                     session_start();
+                    include 'connect.php';
                 if (isset($_POST['login'])){
                     $email1=$_POST['email1'];
                     $password=$_POST['password'];
                     if (!empty($email1) && !empty($password)){
-                        include 'connect.php';
+                        
                         $query = "SELECT Name FROM user Where Email='$email1' and Password='$password'";
                         $result = mysqli_query($conn, $query)
                         or die("Error in query: ". mysqli_error($conn));
@@ -101,7 +102,6 @@
                     $username2=$_POST['username2'];
                     $password2=$_POST['password2'];
                     if (!empty($name) && !empty($name)){
-                        $conn = mysqli_connect("localhost", "root", "", "supermarket");
                         $query = "INSERT INTO user (Name,Surname,Email,Username,Password)
                                 VALUES ('$name','$surname','$email','$username2','$password2')";
                         $result = mysqli_query($conn, $query)

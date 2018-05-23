@@ -132,7 +132,7 @@ public class AllProducts extends javax.swing.JFrame {
     public void connectAndRetrieve()
     {
         try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarket?useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/supermarket?useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
 
             Statement stmt= con.createStatement();
             
@@ -151,7 +151,7 @@ public class AllProducts extends javax.swing.JFrame {
     public void connectAndSearch()
     {
         try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarket?useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/supermarket?useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
             
             Statement stmt= con.createStatement();
             

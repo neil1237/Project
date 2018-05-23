@@ -163,7 +163,7 @@ public class InsertProduct extends javax.swing.JFrame {
     public static void connectAndInsert( String names,int price1,int stock1,String image1)
     {
         try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarket?useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/supermarket?useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
             
             Statement stmt= con.createStatement();
             
